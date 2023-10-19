@@ -1,0 +1,137 @@
+
+image: node:14
+
+definitions:
+  steps: 
+    -step: &test-result
+      name: Run Tests
+      caches: 
+        - node
+      script:
+        - npm install
+        - npm test
+      artifacts:
+        -'**/test-report.xml'
+
+pipeline:
+  default:
+    step:
+    
+
+
+
+
+
+
+# image: node:14 
+
+# pipelines:
+#   default:
+#     - step:
+#         name: Run Tests
+#         caches:
+#           - node
+#         script:
+#           - npm install  
+#           - npm test   
+
+# definitions:
+#   steps:
+#     - step: 
+#         name: Check Test Results
+#         caches:
+#           - node
+#         script:
+#           - node nodeshowtestresult.js  
+#           - |
+#             if [ $FAILED_TEST_CASES -gt 1 ]; then
+#               echo "Stopping the pipeline due to more than 1 failed test cases."
+#               exit 1
+#             fi
+#         services:
+#           - node
+
+
+
+
+
+# &check-tests
+# image: node:14  
+
+# pipelines:
+#   default:
+#     - step:
+#         name: Run Tests
+#         caches:
+#           - node
+#         script:
+#           - npm install  
+#           - npm test   
+
+# definitions:
+#   steps:
+#     - step: &check-tests
+#         name: Check Test Results
+#         caches:
+#           - node
+#         image: node:14 
+
+
+# image: node:14
+
+# pipelines:
+#   default:
+#     - step:
+#         name: Run Tests
+#         caches:
+#           - node
+#         script:
+#           - npm install
+#           - npm test
+
+#   after-script:
+#     - step:
+#         name: Check Test Results
+#         caches:
+#           - node
+#         script:
+#           - node testresult.js
+#         artifacts:
+#           - testresult.js
+
+#     - step:
+#         name: Stop Pipeline on Failure
+#         script:
+#           - |
+#             if [ "$FAILED_TEST_CASES" = "1" ]; then
+#               echo "Stopping the pipeline due to 1 failed test case."
+#               exit 1
+#             else
+#               echo "Pipeline continues since no failed test case or more than one failed test case."
+#             fi
+
+#   # Add the MongoDB service as part of your pipeline definition
+#   services:
+#     - mongo
+
+# definitions:
+#   services:
+#     mongo:
+#       image: mongo:4.4
+
+# image: node:14  # Use a Node.js 14 image
+
+# pipelines:
+#   default:
+#     - step:
+#         name: Build and Test
+#         caches:
+#           - node
+#         script:
+#           - npm install  # Install project dependencies
+#           # - npm test      # Run tests
+
+
+
+
+
