@@ -46,9 +46,6 @@ try {
 
 
 
-
-
-
 // const fs = require('fs');
 
 // const fileContent = fs.readFileSync('./jest-html-reporters-attach/jest_html_reporters/result.js', 'utf8');
